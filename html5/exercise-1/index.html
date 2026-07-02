@@ -240,6 +240,9 @@ oncanplay="videoReady()">
 </video>
 
 <p id="videoStatus"></p>
+<button onclick="clearStorage()">
+Clear Preferences
+</button>
 <script>
         function showMessage() {
             document.getElementById("result").innerHTML =
@@ -286,6 +289,35 @@ document.getElementById("videoStatus").innerHTML="Video Ready To Play";
 window.onbeforeunload=function(){
 
 return "Your form is not submitted.";
+
+}
+let event=document.getElementById("eventType");
+
+event.onchange=function(){
+
+localStorage.setItem("event",event.value);
+
+}
+
+window.onload=function(){
+
+let saved=localStorage.getItem("event");
+
+if(saved){
+
+event.value=saved;
+
+}
+
+}
+
+function clearStorage(){
+
+localStorage.clear();
+
+sessionStorage.clear();
+
+alert("Preferences Cleared");
 
 }
 </script>
