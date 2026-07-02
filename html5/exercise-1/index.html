@@ -243,6 +243,13 @@ oncanplay="videoReady()">
 <button onclick="clearStorage()">
 Clear Preferences
 </button>
+<button onclick="findLocation()">
+
+Find Nearby Events
+
+</button>
+
+<p id="location"></p>
 <script>
         function showMessage() {
             document.getElementById("result").innerHTML =
@@ -318,6 +325,41 @@ localStorage.clear();
 sessionStorage.clear();
 
 alert("Preferences Cleared");
+
+}
+function findLocation(){
+
+navigator.geolocation.getCurrentPosition(
+
+success,
+
+error,
+
+{
+
+enableHighAccuracy:true,
+
+timeout:5000
+
+}
+
+);
+
+}
+
+function success(position){
+
+document.getElementById("location").innerHTML=
+
+"Latitude : "+position.coords.latitude+
+
+"<br>Longitude : "+position.coords.longitude;
+
+}
+
+function error(){
+
+alert("Unable to get location");
 
 }
 </script>
