@@ -191,12 +191,83 @@ required></textarea>
 <output id="result"></output>
 
 </form>
+Phone
+
+<input
+type="text"
+id="phone"
+onblur="validatePhone()">
+
+<br><br>
+
+<select onchange="showFee(this.value)">
+
+<option value="">Select Event</option>
+
+<option value="100">Sports</option>
+
+<option value="200">Music</option>
+
+<option value="300">Food</option>
+
+</select>
+
+<p id="fee"></p>
+
+<textarea
+id="feedback"
+onkeyup="countChar()"></textarea>
+
+<p id="count"></p>
+
+<img
+src="event1.jpg"
+width="200"
+ondblclick="enlarge(this)">
+
+<br><br>
+
+<button onclick="alert('Registration Submitted')">
+Submit
+</button>
 
 <script>
         function showMessage() {
             document.getElementById("result").innerHTML =
                 "Registration Successful!";
         }
+
+        function validatePhone(){
+
+let phone=document.getElementById("phone").value;
+
+if(phone.length!=10){
+
+alert("Invalid Phone Number");
+
+}
+
+}
+
+function showFee(value){
+
+document.getElementById("fee").innerHTML="Fee : ₹"+value;
+
+}
+
+function enlarge(img){
+
+img.style.width="400px";
+
+}
+
+function countChar(){
+
+let len=document.getElementById("feedback").value.length;
+
+document.getElementById("count").innerHTML="Characters : "+len;
+
+}
 </script>
     <!-- Footer -->
 
