@@ -24,6 +24,12 @@
             width:180px;
             height:120px;
         }
+        form{
+            width:400px;
+            margin:auto;
+            padding:20px;
+            border:1px solid gray;
+        }
     </style>
 </head>
 
@@ -138,6 +144,60 @@
     </tr>
 
 </table>
+
+<h2>Event Registration</h2>
+
+<form onsubmit="showMessage();return false;">
+
+<input
+type="text"
+placeholder="Enter Name"
+required
+autofocus>
+
+<br><br>
+
+<input
+type="email"
+placeholder="Enter Email"
+required>
+
+<br><br>
+
+<input
+type="date"
+required>
+
+<br><br>
+
+<select id="eventType">
+
+<option>Sports</option>
+<option>Music</option>
+<option>Food</option>
+
+</select>
+
+<br><br>
+
+<textarea
+placeholder="Message"
+required></textarea>
+
+<br><br>
+
+<input type="submit">
+
+<output id="result"></output>
+
+</form>
+
+<script>
+        function showMessage() {
+            document.getElementById("result").innerHTML =
+                "Registration Successful!";
+        }
+</script>
     <!-- Footer -->
 
 </body>
