@@ -230,7 +230,16 @@ ondblclick="enlarge(this)">
 <button onclick="alert('Registration Submitted')">
 Submit
 </button>
+<video
+width="400"
+controls
+oncanplay="videoReady()">
 
+<source src="promo.mp4" type="video/mp4">
+
+</video>
+
+<p id="videoStatus"></p>
 <script>
         function showMessage() {
             document.getElementById("result").innerHTML =
@@ -266,6 +275,17 @@ function countChar(){
 let len=document.getElementById("feedback").value.length;
 
 document.getElementById("count").innerHTML="Characters : "+len;
+
+}
+function videoReady(){
+
+document.getElementById("videoStatus").innerHTML="Video Ready To Play";
+
+}
+
+window.onbeforeunload=function(){
+
+return "Your form is not submitted.";
 
 }
 </script>
